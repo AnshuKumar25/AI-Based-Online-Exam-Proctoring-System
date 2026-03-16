@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Cheating Monitor</title>
+    <style>
+        body { font-family: Arial; background: #f9f9f9; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; background: white; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+    </style>
+</head>
+<body>
+    <h2>Cheating Detection Logs</h2>
+    <table>
+        <tr><th>Time</th><th>Status</th></tr>
+        {% for row in data %}
+        <tr><td>{{ row['Time'] }}</td><td>{{ row['Status'] }}</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

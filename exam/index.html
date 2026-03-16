@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Proctoring System Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Prevent scrollbars from the main page */
+        }
+        .slide {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        /* Fade transition */
+        .slide.transitioning-out {
+            opacity: 0;
+        }
+        .slide.transitioning-in {
+            opacity: 1;
+        }
+        
+        .icon-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .diagram-box {
+            border: 2px solid #4A5568;
+            background-color: #2D3748;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .arrow {
+            position: relative;
+            color: #718096;
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+
+    <div id="presentation-container" class="relative w-full h-full">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active items-center justify-center p-8 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=');">
+             <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="text-center z-10">
+                <h1 class="text-6xl md:text-8xl font-black uppercase tracking-wider">Online Proctoring Exam System</h1>
+                <div class="mt-12 flex justify-center space-x-8 md:space-x-16">
+                    <div class="icon-card p-6 rounded-lg text-center">
+                        <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l-1.414-1.414M19.778 19.778l-1.414-1.414M18.364 5.636l1.414-1.414M4.222 19.778l1.414-1.414M12 12a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+                        <h2 class="text-2xl font-bold">AI</h2>
+                    </div>
+                    <div class="icon-card p-6 rounded-lg text-center">
+                        <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h2 class="text-2xl font-bold">STQA</h2>
+                    </div>
+                    <div class="icon-card p-6 rounded-lg text-center">
+                        <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <h2 class="text-2xl font-bold">Design Thinking</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction -->
+        <div class="slide p-8 md:p-16 items-center">
+            <div class="grid md:grid-cols-2 gap-12 w-full max-w-7xl mx-auto">
+                <div class="flex items-center justify-center">
+                    <img src="https://placehold.co/600x400/1A202C/4A5568?text=Visual+Representation" alt="Student taking an online exam" class="rounded-lg shadow-2xl">
+                </div>
+                <div>
+                    <h2 class="text-5xl font-bold text-cyan-400 mb-8">Introduction</h2>
+                    <ul class="space-y-6 text-2xl text-gray-300">
+                        <li class="flex items-start"><span class="text-cyan-400 mr-4">&#10148;</span>Monitors and manages online exams with integrity.</li>
+                        <li class="flex items-start"><span class="text-cyan-400 mr-4">&#10148;</span>Integrates AI for advanced proctoring capabilities.</li>
+                        <li class="flex items-start"><span class="text-cyan-400 mr-4">&#10148;</span>Ensures fairness, scalability, and accessibility.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Problem Statement -->
+        <div class="slide p-8 md:p-16 items-center bg-gray-800">
+             <div class="text-center w-full max-w-6xl mx-auto">
+                <h2 class="text-5xl font-bold text-red-400 mb-12">Problem Statement</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-gray-700 p-6 rounded-lg border-l-4 border-red-400">
+                        <h3 class="text-2xl font-semibold mb-2">Cheating & Fraud</h3>
+                        <p class="text-gray-400">Traditional online exams are vulnerable to cheating and identity fraud, compromising integrity.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg border-l-4 border-red-400">
+                        <h3 class="text-2xl font-semibold mb-2">Resource Intensive</h3>
+                        <p class="text-gray-400">Manual proctoring is costly, not scalable for large groups, and prone to human error.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg border-l-4 border-red-400">
+                        <h3 class="text-2xl font-semibold mb-2">Lack of Automation</h3>
+                        <p class="text-gray-400">A need for an automated, AI-driven system to provide reliable and scalable exam security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Objectives -->
+        <div class="slide p-8 md:p-16 items-center">
+            <div class="w-full max-w-7xl mx-auto text-center">
+                <h2 class="text-5xl font-bold text-green-400 mb-12">Our Objectives</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform">
+                        <h3 class="text-2xl font-bold mb-2">AI-Powered Solution</h3>
+                        <p class="text-gray-400">Develop a robust proctoring solution powered by artificial intelligence.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform">
+                        <h3 class="text-2xl font-bold mb-2">Cheat Detection</h3>
+                        <p class="text-gray-400">Detect cheating via video, audio, and screen monitoring.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform">
+                        <h3 class="text-2xl font-bold mb-2">Scalability & Security</h3>
+                        <p class="text-gray-400">Ensure the system is highly scalable and secure against threats.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform">
+                        <h3 class="text-2xl font-bold mb-2">LMS Integration</h3>
+                        <p class="text-gray-400">Seamlessly integrate with existing Learning Management Systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Design Thinking Phases -->
+        <div class="slide p-8 md:p-16 items-center justify-center">
+            <div class="w-full max-w-7xl mx-auto text-center">
+                <h2 class="text-5xl font-bold text-yellow-400 mb-12">Design Thinking Process</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="bg-gray-800 p-4 rounded-lg flex-1 text-center">
+                        <h3 class="text-xl font-bold">1. Empathize</h3>
+                        <p class="text-sm text-gray-400">Understand user needs.</p>
+                    </div>
+                    <div class="arrow">&rarr;</div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex-1 text-center">
+                        <h3 class="text-xl font-bold">2. Define</h3>
+                        <p class="text-sm text-gray-400">Identify key challenges.</p>
+                    </div>
+                    <div class="arrow">&rarr;</div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex-1 text-center">
+                        <h3 class="text-xl font-bold">3. Ideate</h3>
+                        <p class="text-sm text-gray-400">Brainstorm solutions.</p>
+                    </div>
+                    <div class="arrow">&rarr;</div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex-1 text-center">
+                        <h3 class="text-xl font-bold">4. Prototype</h3>
+                        <p class="text-sm text-gray-400">Build a testable model.</p>
+                    </div>
+                     <div class="arrow">&rarr;</div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex-1 text-center">
+                        <h3 class="text-xl font-bold">5. Test</h3>
+                        <p class="text-sm text-gray-400">Validate with real users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: System Architecture -->
+        <div class="slide p-8 md:p-16 items-center justify-center">
+             <div class="w-full max-w-6xl mx-auto text-center">
+                <h2 class="text-5xl font-bold text-indigo-400 mb-12">System Architecture</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="diagram-box">User Interface (Student)</div>
+                    <div class="arrow self-center text-center">&harr;</div>
+                    <div class="diagram-box">AI Engine</div>
+                    <div></div> <!-- Spacer -->
+                    <div class="arrow self-center text-center transform rotate-90 md:rotate-0">&uarr;&darr;</div>
+                    <div></div> <!-- Spacer -->
+                    <div class="diagram-box">Admin Dashboard</div>
+                    <div class="arrow self-center text-center">&harr;</div>
+                    <div class="diagram-box">Backend (Data & Logging)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 10: Results of Testing -->
+        <div class="slide p-8 md:p-16 items-center justify-center">
+            <div class="w-full max-w-7xl mx-auto text-center">
+                <h2 class="text-5xl font-bold text-teal-400 mb-12">Testing Results</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <div class="text-7xl font-black text-teal-400">95%</div>
+                        <h3 class="text-2xl mt-2">Cheating Attempts Detected</h3>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <div class="text-7xl font-black text-teal-400">500+</div>
+                        <h3 class="text-2xl mt-2">Concurrent Users Stable</h3>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                         <div class="text-7xl font-black text-green-500">&#10004;</div>
+                        <h3 class="text-2xl mt-2">Critical Bugs Resolved</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 11: Conclusion -->
+        <div class="slide p-8 md:p-16 items-center justify-center bg-gray-800">
+            <div class="text-center">
+                <h2 class="text-6xl font-bold mb-10">Conclusion</h2>
+                <ul class="space-y-5 text-2xl text-gray-300 text-left max-w-4xl mx-auto">
+                    <li class="flex items-center"><span class="text-green-400 mr-4 text-3xl">&#10004;</span>AI significantly improves exam security and fairness.</li>
+                    <li class="flex items-center"><span class="text-green-400 mr-4 text-3xl">&#10004;</span>Design Thinking leads to user-centric, effective solutions.</li>
+                    <li class="flex items-center"><span class="text-green-400 mr-4 text-3xl">&#10004;</span>STQA principles validate system reliability and performance.</li>
+                    <li class="flex items-center"><span class="text-green-400 mr-4 text-3xl">&#10004;</span>We have built a scalable solution for modern education.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <button id="prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/40 transition-colors z-20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+    <button id="next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/40 transition-colors z-20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </button>
+
+    <!-- Slide Counter -->
+    <div id="slide-counter" class="absolute bottom-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full z-20"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                const oldSlide = slides[currentSlide];
+                const newSlide = slides[index];
+                
+                oldSlide.classList.add('transitioning-out');
+
+                setTimeout(() => {
+                    oldSlide.classList.remove('active', 'transitioning-out');
+                    newSlide.classList.add('active', 'transitioning-in');
+                    currentSlide = index;
+                    updateCounter();
+                     setTimeout(() => newSlide.classList.remove('transitioning-in'), 50);
+                }, 500); // Match CSS transition duration
+            }
+
+            function updateCounter() {
+                slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                const nextSlideIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextSlideIndex);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const prevSlideIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevSlideIndex);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                } else if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                }
+            });
+
+            // Initialize
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
